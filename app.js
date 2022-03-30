@@ -11,6 +11,7 @@ app.use(cookieParser());
 
 //Router
 app.use("/api/auth", require("./routers/authRouter"));
+app.use("/api/book", require("./routers/bookRouter"));
 app.use("/api/user", require("./routers/userRouter"));
 
 //Connect MongoDB
