@@ -19,7 +19,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQz
 
 GET http://localhost:5000/api/user/get-all-member
 Content-Type: application/json
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODYyOTMzOCwiZXhwIjoxNjQ4NzE1NzM4fQ.0pnKXFZsha-Lp9r97dMgqsvdTHX0clFR5ynQz78vreM
 
 ###
 
