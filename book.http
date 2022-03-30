@@ -1,0 +1,43 @@
+POST http://localhost:5000/api/book/add-book
+Content-Type: application/json
+
+{
+    "title": "Conan",
+    "author": "Thanh Le",
+    "description": "The Lord of the Rings is an epic high fantasy",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/51YQM%2BQ%2BTL.jpg"
+}
+
+
+###
+
+GET http://localhost:5000/api/book/books
+Content-Type: application/json
+
+
+###
+
+GET http://localhost:5000/api/book/6242742e44da7ca4d5f6b7e9
+Content-Type: application/json
+
+###
+
+PUT http://localhost:5000/api/book/6242742e44da7ca4d5f6b7e9
+Content-Type: application/json
+
+{
+    "title": "Conan Update",
+    "author": "Thanh Le",
+    "description": "The Lord of the Rings is an epic high fantasy",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/51YQM%2BQ%2BTL.jpg"
+}
+
+###
+
+PATCH  http://localhost:5000/api/book/borrow/6242742e44da7ca4d5f6b7e9
+Content-Type: application/json
+
+###
+
+PATCH  http://localhost:5000/api/book/return/6242742e44da7ca4d5f6b7e9
+Content-Type: application/json

@@ -1,0 +1,36 @@
+PATCH http://localhost:5000/api/user/update/62416c8e7fafd33e28f9cb49
+Content-Type: application/json
+
+{
+    "fullname": "Cuong update",
+    "email": "cuongle.devplus@gmail.com",
+    "password": "12341234"
+}
+
+###
+
+POST http://localhost:5000/api/user/is-admin/62415febcd067d0ae40d8712
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODUzODQ4NCwiZXhwIjoxNjQ4NjI0ODg0fQ.yJBIbzEuI_pTMqEBmHlK2cPOqBJaq8Zjp5Cf1a6SlMY
+
+###
+
+
+
+GET http://localhost:5000/api/user/get-all-member
+Content-Type: application/json
+
+
+###
+
+
+DELETE http://localhost:5000/api/user/adadadadad
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODQ1NDkyMiwiZXhwIjoxNjQ4NTQxMzIyfQ.umgsbid_SWyO6yA6LX9GdqTpnPmMMaLWwNKfm9tcrhg
+
+###
+
+
+GET http://localhost:5000/api/user/get-member/62416c8e7fafd33e28f9cb49
+Content-Type: application/json
+Authorization: qweqbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODQ2MjQyOSwiZXhwIjoxNjUxMDU0NDI5fQ.ZfN4t3FTkvfjuAKOfNLI6DS1cE6jm_HTlj4qtoleJdE

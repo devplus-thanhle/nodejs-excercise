@@ -1,0 +1,28 @@
+POST http://localhost:5000/api/auth/add-member
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODUzODQ4NCwiZXhwIjoxNjQ4NjI0ODg0fQ.yJBIbzEuI_pTMqEBmHlK2cPOqBJaq8Zjp5Cf1a6SlMY
+
+{
+    "fullname": "John Doe",
+    "email": "john.devplus@gmail.com",
+    "password": "123123"
+}
+
+###
+
+POST  http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "john.devplus@gmail.com",
+    "password": "123123"
+}
+
+###
+
+POST http://localhost:5000/api/auth/refresh-token
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODQ2MjQyOSwiZXhwIjoxNjUxMDU0NDI5fQ.ZfN4t3FTkvfjuAKOfNLI6DS1cE6jm_HTlj4qtoleJdE
+
+###
+
