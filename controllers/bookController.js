@@ -1,103 +1,42 @@
 const Books = require("../models/bookModel");
+const bookServices = require("../services/bookServices");
 
 const bookCtrl = {
-  addBook: async (req, res) => {
-    try {
-      const { title, author, description, image } = req.body;
-      if (!title || !author || !description || !image) {
-        return res.status(400).json({ msg: "Please fill all fields" });
-      }
-
-      const newBook = new Books({
-        title,
-        author,
-        description,
-        image,
-      });
-
-      await newBook.save();
-      res.json({ msg: "Book added successfully", book: newBook });
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
-    }
+  addBook: async (req, res, next) => {
+    const ress = await bookServices.addBook(req, res, next);
+    if (!ress) return;
+    res.status(200).json({ msg: "Book added successfully", book: ress });
   },
-  getBooks: async (req, res) => {
-    try {
-      const books = await Books.find();
-      res.json({ msg: "Books found", books });
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
-    }
+  getBooks: async (req, res, next) => {
+    const ress = await bookServices.getBooks(req, res, next);
+    if (!ress) return;
+    res.status(200).json({ msg: "Books found", books: ress });
   },
-  getBook: async (req, res) => {
-    try {
-      const book = await Books.findById(req.params.id);
-      if (!book) return res.status(400).json({ msg: "Book not found" });
-      res.json({ msg: "Book found", book });
-    } catch (error) {
-      return res.status(500).json({ msg: "Book not found" });
-    }
+  getBook: async (req, res, next) => {
+    const ress = await bookServices.getBook(req, res, next);
+    if (!ress) return;
+    res.status(200).json({ msg: "Book found", book: ress });
   },
-  updateBook: async (req, res) => {
-    const { title, author, description, image } = req.body;
-
-    const book = await Books.findByIdAndUpdate(
-      req.params.id,
-      {
-        title,
-        author,
-        description,
-        image,
-      },
-      { new: true }
-    );
-
-    if (!book) return res.status(400).json({ msg: "Book not found" });
-
-    res.json({ msg: "Book updated successfully", book });
+  updateBook: async (req, res, next) => {
+    const ress = await bookServices.updateBook(req, res, next);
+    if (!ress) return;
+    console.log("ress", ress);
+    res.status(200).json({ msg: "Book updated", book: ress });
   },
-  removeBook: async (req, res) => {
-    try {
-      const book = await Books.findByIdAndDelete(req.params.id);
-      if (!book) return res.status(400).json({ msg: "Book not found" });
-      res.json({ msg: "Book deleted successfully" });
-    } catch (error) {
-      return res.status(500).json({ msg: error.message });
-    }
+  removeBook: async (req, res, next) => {
+    const ress = await bookServices.removeBook(req, res, next);
+    if (!ress) return;
+    res.status(200).json({ msg: "Book removed" });
   },
-  borrowBook: async (req, res) => {
-    try {
-      const book = await Books.findByIdAndUpdate(
-        req.params.id,
-        {
-          status: "borrowed",
-        },
-        {
-          new: true,
-        }
-      );
-
-      res.json({ msg: "Successfully", book });
-    } catch (error) {
-      return res.status(500).json({ msg: "Book not found" });
-    }
+  borrowBook: async (req, res, next) => {
+    const ress = await bookServices.borrowBook(req, res, next);
+    if (!ress) return;
+    res.status(200).json({ msg: "Book borrowed", book: ress });
   },
-  returnBook: async (req, res) => {
-    try {
-      const book = await Books.findByIdAndUpdate(
-        req.params.id,
-        {
-          status: "available",
-        },
-        {
-          new: true,
-        }
-      );
-
-      res.json({ msg: "Successfully", book });
-    } catch (error) {
-      return res.status(500).json({ msg: "Book not found" });
-    }
+  returnBook: async (req, res, next) => {
+    const ress = await bookServices.returnBook(req, res, next);
+    if (!ress) return;
+    res.status(200).json({ msg: "Book returned", book: ress });
   },
 };
 

@@ -12,6 +12,6 @@ router.delete("/:id", auth.verifyRole, userCtrl.removeMember);
 
 router.post("/is-admin/:id", auth.verifyAdmin, userCtrl.isAdmin);
 
-router.post("/is-member/:id", auth.verifyAdmin, userCtrl.isMember);
+router.post("/member/:id", auth.verifyAdmin, userCtrl.isMember);
 
 module.exports = router;

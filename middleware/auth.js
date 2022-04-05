@@ -18,6 +18,10 @@ const auth = {
       req.user = user;
       next();
     } catch (error) {
+      if (error.message === "jwt expired")
+        return res.status(401).json({ msg: "Invalid Authentication." });
+      if (error.message === "jwt malformed")
+        return res.status(401).json({ msg: "Invalid Authentication." });
       return res.status(500).json({ msg: error.message });
     }
   },
@@ -31,13 +35,19 @@ const auth = {
     });
   },
   verifyAdmin: async (req, res, next) => {
-    auth.verifyToken(req, res, () => {
-      if (req.user.isAdmin) {
-        next();
-      } else {
-        return res.status(403).json({ msg: "You are not allowed to do that" });
-      }
-    });
+    try {
+      auth.verifyToken(req, res, () => {
+        if (req.user.isAdmin) {
+          next();
+        } else {
+          return res
+            .status(403)
+            .json({ msg: "You are not allowed to do that" });
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 
