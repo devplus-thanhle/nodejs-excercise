@@ -1,11 +1,11 @@
 POST http://localhost:5000/api/auth/add-member
 content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODUzODQ4NCwiZXhwIjoxNjQ4NjI0ODg0fQ.yJBIbzEuI_pTMqEBmHlK2cPOqBJaq8Zjp5Cf1a6SlMY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkwNDE3NDksImV4cCI6MTY0OTEyODE0OX0.86QQlCjJYSTsiY4sh69BbsdrO_4EP4v3QULUMSr7X3I
 
 {
-    "fullname": "John Doe",
-    "email": "john.devplus@gmail.com",
-    "password": "123123"
+    "fullname": "",
+    "email": "",
+    "password": ""
 }
 
 ###
@@ -22,7 +22,6 @@ Content-Type: application/json
 
 POST http://localhost:5000/api/auth/refresh-token
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODQ2MjQyOSwiZXhwIjoxNjUxMDU0NDI5fQ.ZfN4t3FTkvfjuAKOfNLI6DS1cE6jm_HTlj4qtoleJdE
 
 ###
 
