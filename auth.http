@@ -1,11 +1,11 @@
 POST http://localhost:5000/api/auth/add-member
 content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkwNDE3NDksImV4cCI6MTY0OTEyODE0OX0.86QQlCjJYSTsiY4sh69BbsdrO_4EP4v3QULUMSr7X3I
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTM5MTM0OCwiZXhwIjoxNjUwNjg3MzQ4fQ.fnRPsjOChaJJ5WRuOoUC_WpOyIJm1OynU-hqZQgbRVc
 
 {
-    "fullname": "",
-    "email": "",
-    "password": ""
+    "fullname": "test",
+    "email": "test7@gmail.com",
+    "password": "123123"
 }
 
 ###
@@ -14,7 +14,7 @@ POST  http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "thanhle.devplus@gmail.com",
+    "email": "admin.devplus@gmail.com",
     "password": "123123"
 }
 

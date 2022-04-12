@@ -1,8 +1,14 @@
 const router = require("express").Router();
 const auth = require("../middleware/auth");
 const userCtrl = require("../controllers/userController");
+const upload = require("../lib/upload.multer");
 
-router.patch("/update/:id", auth.verifyAdmin, userCtrl.updateMember);
+router.patch(
+  "/update/:id",
+  upload.single("recfile"),
+  auth.verifyAdmin,
+  userCtrl.updateMember
+);
 
 router.get("/get-all-member", auth.verifyAdmin, userCtrl.getAllMembers);
 

@@ -1,14 +1,15 @@
 const request = require("supertest");
 const app = require("../app");
 const mongoose = require("mongoose");
+const authServices = require("../src/services/authServices");
 const user = {
   email: "thanhle.devplus@gmail.com",
   password: "123123",
 };
 const adminToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA0MDk2MiwiZXhwIjoxNjQ5MTI3MzYyfQ.k7WWhxrC8KednmPZfAxgv6tpNgHoCB6txu9DXc99fXY";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTM4MDcxOCwiZXhwIjoxNjUwNjc2NzE4fQ.4tZPjOCNq92q7U9vZgTbUflYoQFvxixvfVyfg0WZ2hQ";
 const userToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkwNDE3NDksImV4cCI6MTY0OTEyODE0OX0.86QQlCjJYSTsiY4sh69BbsdrO_4EP4v3QULUMSr7X3I";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkzODA3NTAsImV4cCI6MTY1MDY3Njc1MH0.dqnukddWCuE1_d55OJivAWghv7wgz80V486vNfmkmQQ";
 const invalidToken = "aadadsasd";
 
 describe("Should login for a user", () => {
@@ -98,6 +99,20 @@ describe("Should add member for admin", () => {
       .set("authorization", adminToken);
     expect(res.statusCode).toBe(400);
     expect(res.body.msg).toBe("Email is already exists");
+  });
+
+  test("should return status 400 when invalid email", async () => {
+    const res = await request(app)
+      .post("/api/auth/add-member")
+      .send({
+        fullname: "thanh le",
+        email: "thanhle.devplus",
+        password: "123123",
+      })
+      .set("authorization", adminToken);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.msg).toBe("Please enter a valid email");
   });
 
   test("should return status 400 when password less than 6 characters", async () => {
