@@ -1,6 +1,15 @@
 const Users = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cloudinary = require("cloudinary").v2;
+const upload = require("../lib/upload.multer");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+  secure: true,
+});
 
 function validateEmail(email) {
   const re =
@@ -19,7 +28,6 @@ const authServices = {
         err.statusCode = 400;
         return next(err);
       }
-
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
@@ -45,11 +53,11 @@ const authServices = {
 
       return { accessToken, user: { ...user._doc, password: "" } };
     } catch (error) {
-      return { msg: error.message };
+      next(error);
     }
   },
 
-  addMember: async (req, res, next) => {
+  addMember: async (req, next) => {
     try {
       const { fullname, email, password } = req.body;
 
@@ -78,18 +86,19 @@ const authServices = {
         return next(err);
       }
 
+      const img = await cloudinary.uploader.upload(req.file.path);
+
       const passwordHash = await bcrypt.hash(password, 12);
 
       const newUser = new Users({
         fullname,
         email,
         password: passwordHash,
+        avatar: img.secure_url,
       });
-      const user = await newUser.save();
-
-      return user;
+      return await newUser.save();
     } catch (error) {
-      return { msg: error.message };
+      next(error);
     }
   },
 
@@ -113,7 +122,6 @@ const authServices = {
         //     err.statusCode = 404;
         //     return next(err);
         //   }
-        console.log(result);
         const accessToken = createAccessToken({
           id: result.id,
           isAdmin: result.isAdmin,
@@ -129,7 +137,7 @@ const authServices = {
 
 const createAccessToken = ({ id, isAdmin }) => {
   return jwt.sign({ id, isAdmin }, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "1d",
+    expiresIn: "15d",
   });
 };
 

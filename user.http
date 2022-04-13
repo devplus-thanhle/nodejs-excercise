@@ -1,18 +1,18 @@
 PATCH http://localhost:5000/api/user/update/6242b3ce86b22e3dadc7692c
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODcyMDU3OCwiZXhwIjoxNjQ4ODA2OTc4fQ.fedVohfJfsrRQVyJHbJ5JYh-civKz-bD3qaM4FVleeQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTIxMjU5MSwiZXhwIjoxNjQ5Mjk4OTkxfQ._DRi0uCtI_DcH6kS_jH_zvCqZqGA_tTh3b9Xvipzm9w
 
 {
-    "fullname": "Hoang Anh Phan",
+    "fullname": "Hoang Anh Phan update",
     "email": "anhphan.devplus@gmail.com",
     "password": "123123"
 }
 
 ###
 
-POST http://localhost:5000/api/user/member/62415febcd067d0ae40d8712
+POST http://localhost:5000/api/user/is-admin/62415febcd067d0ae40d8712
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODcyMTgwOCwiZXhwIjoxNjQ4ODA4MjA4fQ.DB1aa5DMwJDqRK-QIZjRkT9u0ZTe0wQuFlAcYGTmLsQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTIxMjU5MSwiZXhwIjoxNjQ5Mjk4OTkxfQ._DRi0uCtI_DcH6kS_jH_zvCqZqGA_tTh3b9Xvipzm9w
 
 ###
 
@@ -20,13 +20,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQz
 
 GET http://localhost:5000/api/user/get-all-member
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA0ODE5MywiZXhwIjoxNjQ5MTM0NTkzfQ.-lrZte33BmHKeN9v0Q4SpAo1TtMAE6Gx0gyGyncFES8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTM4MDU0MiwiZXhwIjoxNjUxOTcyNTQyfQ.taWrl_CG5Zqbpjb6s7zfcY29zx3fy_zCRF6nYQtMP-U
 ###
 
 
-DELETE http://localhost:5000/api/user/62456c91794068863f3cce2d
+DELETE http://localhost:5000/api/user/624bbcb3cd385201e945c685
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODcyMDU3OCwiZXhwIjoxNjQ4ODA2OTc4fQ.fedVohfJfsrRQVyJHbJ5JYh-civKz-bD3qaM4FVleeQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGJiY2IzY2QzODUyMDFlOTQ1YzY4NSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMzA4MDUsImV4cCI6MTY0OTIxNzIwNX0.o8MIPFRgnyRBfceerqNS6PPEZ2rGzS1OL45ZKjdL8Qo
 
 
 ###
@@ -34,4 +34,4 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQz
 
 GET http://localhost:5000/api/user/get-member/6242b3ce86b22e3dadc7692c
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkwNjgwMDYsImV4cCI6MTY0OTE1NDQwNn0.yWU2BIQ1z5IwXH07ZRQgyGH2YsiGWYXC--l1Hxewk2s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTQwNjI3MSwiZXhwIjoxNjUwNzAyMjcxfQ.cLwUU8W4fXHf1do76ILdM3wBdffLCiLf3NVPJS4vgeg

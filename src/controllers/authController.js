@@ -2,7 +2,7 @@ const authServices = require("../services/authServices");
 
 const authCtrl = {
   addMember: async (req, res, next) => {
-    const ress = await authServices.addMember(req, res, next);
+    const ress = await authServices.addMember(req, next);
     if (!ress) return;
     res.status(200).json({ msg: "User created successfully", user: ress });
   },
@@ -13,7 +13,7 @@ const authCtrl = {
     res.status(200).json({ msg: "Login Successfully", ress });
   },
 
-  logout: async (req, res) => {
+  logout: async (res) => {
     try {
       res.clearCookie("refreshToken", { path: "/api/auth/refresh-token" });
       return res.json({ msg: "Logout successful" });

@@ -35,19 +35,13 @@ const auth = {
     });
   },
   verifyAdmin: async (req, res, next) => {
-    try {
-      auth.verifyToken(req, res, () => {
-        if (req.user.isAdmin) {
-          next();
-        } else {
-          return res
-            .status(403)
-            .json({ msg: "You are not allowed to do that" });
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    auth.verifyToken(req, res, () => {
+      if (req.user.isAdmin) {
+        next();
+      } else {
+        return res.status(403).json({ msg: "You are not allowed to do that" });
+      }
+    });
   },
 };
 

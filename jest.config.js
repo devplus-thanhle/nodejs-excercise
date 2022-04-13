@@ -1,5 +1,6 @@
 const config = {
   verbose: true,
+  testResultsProcessor: "jest-sonar-reporter",
 };
 
 module.exports = config;
@@ -8,5 +9,6 @@ module.exports = config;
 module.exports = async () => {
   return {
     verbose: true,
+    testResultsProcessor: "jest-sonar-reporter",
   };
 };

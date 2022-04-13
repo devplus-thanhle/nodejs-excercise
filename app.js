@@ -3,17 +3,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const { errorHandle } = require("./error/errorHandle");
+const { errorHandle } = require("./src/error/errorHandle");
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
 //Router
-app.use("/api/auth", require("./routers/authRouter"));
-app.use("/api/book", require("./routers/bookRouter"));
-app.use("/api/user", require("./routers/userRouter"));
+app.use("/api/auth", require("./src/routers/authRouter"));
+app.use("/api/book", require("./src/routers/bookRouter"));
+app.use("/api/user", require("./src/routers/userRouter"));
 
 app.all("*", (req, res, next) => {
   const err = new Error("The router can not be found");

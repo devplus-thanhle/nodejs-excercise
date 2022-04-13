@@ -1,22 +1,19 @@
 POST http://localhost:5000/api/book/add-book
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA2MzY1NCwiZXhwIjoxNjQ5MTUwMDU0fQ.73vl0F9ABuUHbiAT7KUaQb2oDr4dgSmNB1B9RwIJZZc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTM4MDcxOCwiZXhwIjoxNjUwNjc2NzE4fQ.4tZPjOCNq92q7U9vZgTbUflYoQFvxixvfVyfg0WZ2hQ
 
 {
-    "title": "Conan7",
+    "title": "Conan8",
     "author": "Thanh Le",
-    "description": "The Lord of the Rings is an epic high fantasy",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51YQM%2BQ%2BTL.jpg"
+    "description": "The Lord of the Rings is an epic high fantasy"
 }
 
 
 ###
 
-GET http://localhost:5000/api/book/books?page=3&limit=3
+GET http://localhost:5000/api/book/books?page=6
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA2MzY1NCwiZXhwIjoxNjQ5MTUwMDU0fQ.73vl0F9ABuUHbiAT7KUaQb2oDr4dgSmNB1B9RwIJZZc
-
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTM4MDcxOCwiZXhwIjoxNjUwNjc2NzE4fQ.4tZPjOCNq92q7U9vZgTbUflYoQFvxixvfVyfg0WZ2hQ
 ###
 
 GET http://localhost:5000/api/book/6246a21beff9657998ad13e4
@@ -43,12 +40,12 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODc5OTQ2OCwiZXhwIjoxNjQ4ODg1ODY4fQ.j7Hxm3sRS6j_RE3APT27TGONbg63m_OML6tzTw_k_xU
 ###
 
-PATCH  http://localhost:5000/api/book/borrow/6246ae01bd1262eb73236d69
+PATCH  http://localhost:5000/api/book/borrow/624ab6f492d698fba141762f
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDg4MDAzMTIsImV4cCI6MTY0ODg4NjcxMn0.ZjvMDgskj5BVZq6VW5pllT65h-uxDJKNbUfUC1iMEVQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTY2NzYwOCwiZXhwIjoxNjUwOTYzNjA4fQ.r5UznCzbwuKtBfTxNFnBbVJ63blJHiVkzvXUBN5rhsg
 
 ###
 
-PATCH  http://localhost:5000/api/book/return/6246ae01bd1262eb73236d69
+PATCH  http://localhost:5000/api/book/return/624ab6f492d698fba141762f
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDg4MDAzMTIsImV4cCI6MTY0ODg4NjcxMn0.ZjvMDgskj5BVZq6VW5pllT65h-uxDJKNbUfUC1iMEVQ

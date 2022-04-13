@@ -6,9 +6,9 @@ const student = {
   id: "62415febcd067d0ae40d8712",
 };
 const adminToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA0MDk2MiwiZXhwIjoxNjQ5MTI3MzYyfQ.k7WWhxrC8KednmPZfAxgv6tpNgHoCB6txu9DXc99fXY";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2Y2UxN2ZhZmQzM2UyOGY5Y2I1MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTM4MDcxOCwiZXhwIjoxNjUwNjc2NzE4fQ.4tZPjOCNq92q7U9vZgTbUflYoQFvxixvfVyfg0WZ2hQ";
 const userToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkwNDE3NDksImV4cCI6MTY0OTEyODE0OX0.86QQlCjJYSTsiY4sh69BbsdrO_4EP4v3QULUMSr7X3I";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE1ZmViY2QwNjdkMGFlNDBkODcxMiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkzODA3NTAsImV4cCI6MTY1MDY3Njc1MH0.dqnukddWCuE1_d55OJivAWghv7wgz80V486vNfmkmQQ";
 const standardToken = "adadadadadad";
 const incorrectToken =
   "qweeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDE2YzhlN2ZhZmQzM2UyOGY5Y2I0OSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDg2OTIzODAsImV4cCI6MTY0ODc3ODc4MH0.7XvBmjvzpgE5CLOnWXhSxAF7Ip-M6K0BCK4e3RiGIvc";
@@ -192,12 +192,66 @@ describe("isAdmin", () => {
     expect(res.statusCode).toBe(403);
     expect(res.body.msg).toBe("You are not allowed to do that");
   });
-  // test("should rerutn status 400 when user is admin", async () => {
-  //   const res = await request(app)
-  //     .post(`/api/user/is-admin/${student.id}`)
-  //     .set("authorization", adminToken);
+  test("should rerutn status 400 when user is admin", async () => {
+    const res = await request(app)
+      .post(`/api/user/is-admin/62416ce17fafd33e28f9cb52`)
+      .set("authorization", adminToken);
 
-  //   expect(res.body.user.isAdmin).toBe(400);
-  //   expect(res.body.msg).toBe("User is already admin");
-  // });
+    expect(res.statusCode).toBe(400);
+    expect(res.body.msg).toBe("User is already admin");
+  });
+});
+
+describe("isAdmin", () => {
+  test("should return status 401 when without auth ", async () => {
+    const res = await request(app).post(
+      `/api/user/member/62415febcd067d0ae40d8712`
+    );
+
+    expect(res.statusCode).toBe(401);
+    expect(res.body.msg).toBe("Invalid Authentication.");
+  });
+  test("should rerutn status 403 when not allowed", async () => {
+    const res = await request(app)
+      .post(`/api/user/member/62415febcd067d0ae40d8712`)
+      .set("authorization", userToken);
+
+    expect(res.statusCode).toBe(403);
+    expect(res.body.msg).toBe("You are not allowed to do that");
+  });
+  test("should rerutn status 400 when user is member", async () => {
+    const res = await request(app)
+      .post(`/api/user/member/6242b3ce86b22e3dadc7692c`)
+      .set("authorization", adminToken);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.msg).toBe("User is already member");
+  });
+});
+
+describe("Remove Member", () => {
+  test("should return status 401 when without auth ", async () => {
+    const res = await request(app).delete(`/api/user/62456c91794068863f3cce2d`);
+
+    expect(res.statusCode).toBe(401);
+    expect(res.body.msg).toBe("Invalid Authentication.");
+  });
+
+  test("should rerutn status 403 when not allowed", async () => {
+    const res = await request(app)
+      .delete(`/api/user/624bbd66c1a62205e099d854`)
+      .set("authorization", userToken);
+
+    expect(res.statusCode).toBe(403);
+    expect(res.body.msg).toBe("You are not allowed to do that");
+  });
+
+  test("should return status 404 when id not found", async () => {
+    const res = await request(app)
+      .delete(`/api/user/weqweqweqwqweqw`)
+      .set("authorization", adminToken);
+
+    expect(res.statusCode).toBe(404);
+    expect(res.body.msg).toBe("Id not found");
+  });
 });
